@@ -1,0 +1,650 @@
+/* Definisikan variabel warna kustom */
+:root {
+    --color-primary: #0d2a54; /* Biru Tua dari Figma */
+    --color-warning: #f7b731; /* Kuning dari Figma */
+    --font-family-base: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family-base);
+}
+
+/* Kustomisasi Bootstrap */
+.btn-dark-blue {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-dark-blue:hover {
+    background-color: #0a2041; /* Versi sedikit lebih gelap */
+    color: white;
+}
+
+.bg-dark-blue {
+    background-color: var(--color-primary) !important;
+}
+
+.text-custom-yellow {
+    color: var(--color-warning);
+}
+
+.bg-custom-yellow {
+    background-color: var(--color-warning);
+}
+
+/* Styling per Bagian */
+.navbar-brand img {
+    max-height: 60px;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.hero-section {
+    padding: 4rem 0;
+    overflow: hidden; /* Mencegah chat bubble keluar */
+}
+
+.hero-image-container {
+    position: relative;
+    left: 100px;
+}
+
+.hero-image-container .chat-bubble-1 {
+   position: absolute;
+    top: 55%; /* <-- Diubah */
+    left: -7rem; /* <-- Diubah */
+    transform: translateY(-50%); /* <-- Tambahan agar pas di tengah */
+    background-color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 1rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    animation: bounce-in 1s ease-out;
+    
+    /* Tambahan untuk merapikan ikon & teks */
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Mencegah teks turun baris */
+}
+
+.hero-image-container .chat-bubble-2 {
+    position: absolute;
+    bottom: 3rem;
+    right: -5rem;
+    background-color: var(--color-warning);
+    color: var(--color-primary);
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    max-width: 250px;
+    animation: bounce-in 1.2s ease-out;
+}
+
+
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.section-padding {
+    padding: 5rem 0;
+}
+
+.class-card-placeholder {
+    height: 200px;
+    background-color: #e9ecef;
+    border-radius: 1rem;
+    border: 3px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.class-card-placeholder.highlighted {
+    border-color: var(--color-primary);
+}
+
+/* Form Styling */
+.form-control-lg {
+    padding: 0.9rem 1.25rem;
+}
+
+/* Floating Chat Bubble */
+.floating-chat-bubble {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-warning);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    z-index: 1030;
+}
+
+.floating-chat-bubble:hover {
+    transform: scale(1.1);
+    color: var(--color-primary);
+}
+
+/* Footer */
+footer a:hover {
+    color: white !important;
+    text-decoration: underline !important;
+}
+
+/*halaman pendaftaran*/
+/* --------------------------------- */
+/* 8. Registration Page (Modern/Dynamic) */
+/* --------------------------------- */
+
+/* Background abu lembut */
+body {
+    background-color: #f7f8fa;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Input style seperti Figma */
+.input-custom {
+    background-color: #f0f2f5;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.input-custom:focus {
+    background-color: #fff;
+    border: 1px solid #0066ff;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+/* Label dan teks */
+.form-label {
+    color: #333;
+    margin-bottom: 6px;
+}
+
+/* Tombol */
+.btn-primary {
+    background-color: #0066ff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #004fcc;
+}
+
+/* Efek halus pada card */
+.shadow-sm {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+
+/* --------------------------------- */
+/* 10. prestasi (End)    */
+/* --------------------------------- */
+
+.trainer-section {
+        background: linear-gradient(135deg, #f8faff 25%, #ffffff 25%, #ffffff 50%, #f8faff 50%, #f8faff 75%, #ffffff 75%, #ffffff);
+        background-size: 40px 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* ===== Container Scroll Trainer ===== */
+    .trainer-scroll-container {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .trainer-scroll-container .row {
+        display: flex;
+        flex-wrap: nowrap;
+        animation: scrollTrainer 40s linear infinite;
+    }
+
+    /* Pause animasi saat hover */
+    .trainer-scroll-container:hover .row {
+        animation-play-state: paused;
+    }
+
+    /* ===== Card Styling ===== */
+    .trainer-scroll-container .col-lg-3 {
+        flex: 0 0 auto;
+        margin-right: 24px;
+    }
+
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #fff;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===== Animasi Scroll ===== */
+    @keyframes scrollTrainer {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+
+    /* ===== Responsiveness ===== */
+    @media (max-width: 768px) {
+        .trainer-scroll-container .col-lg-3 {
+            margin-right: 16px;
+        }
+
+        .trainer-scroll-container .row {
+            animation-duration: 30s;
+        }
+    }
+/* ... Biarkan semua styling ::-webkit-scrollbar untuk trainer ... */
+
+
+/* BUAT ATURAN BARU HANYA UNTUK PRESTASI
+  (Kita pisahkan dari trainer) 
+*/
+.horizontal-scroll-container {
+    overflow-x: hidden; /* <-- PENTING: Sembunyikan scrollbar */
+}
+/* --------------------------------- */
+/* 11. Auto-Scroll Prestasi Section  */
+/* --------------------------------- */
+
+/* Wrapper untuk menyembunyikan scrollbar */
+.horizontal-scroll-container {
+    overflow-x: hidden; 
+}
+
+/* Definisikan animasi 'scrollLeft' */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Bergerak sejauh 50% */
+    }
+}
+
+/* Terapkan animasi ke row */
+.auto-scrolling-row {
+    display: flex;
+    width: max-content; /* Lebar sesuai konten (yang diduplikat) */
+    animation: scrollLeft 40s linear infinite; /* Durasi 40 detik, ulang terus */
+}
+
+/* Pastikan card tidak mengecil */
+.auto-scrolling-row > * {
+    flex-shrink: 0;
+}
+
+/* Jeda animasi saat mouse di atasnya */
+.auto-scrolling-row:hover {
+    animation-play-state: paused;
+}
+
+/* Terapkan animasi ke row */
+.auto-scrolling-row {
+    display: flex;
+    /* Hitung total lebar (misal 4 item @ 33.3% = 133.2%)
+      Lalu kita duplikat, jadi 266.4%
+      'width: max-content' adalah cara gampangnya
+    */
+    width: max-content;
+    
+    /* Jalankan animasi 'scrollLeft'
+      - 40s: Durasi total. Ubah angka ini untuk lebih cepat/lambat
+      - linear: Kecepatan konstan
+      - infinite: Mengulang tanpa henti
+    */
+    animation: scrollLeft 40s linear infinite;
+}
+
+/* Pastikan card tidak mengecil */
+.auto-scrolling-row > * {
+    flex-shrink: 0;
+}
+
+/* Jeda animasi saat mouse di atasnya */
+.auto-scrolling-row:hover {
+    animation-play-state: paused;
+}
+/* --------------------------------- */
+/* 12. Contact Form Animation        */
+/* --------------------------------- */
+
+/* Target form dengan ID 'contactForm' 
+  agar animasinya tidak bentrok dengan form register
+*/
+
+/* Animasi Bertingkat (Staggered) */
+#contactForm .mb-3:nth-child(1) {
+  animation-delay: 0.1s;
+}
+#contactForm .mb-3:nth-child(2) {
+  animation-delay: 0.2s;
+}
+#contactForm .mb-3:nth-child(3) {
+  animation-delay: 0.3s;
+}
+/* Menargetkan tombol */
+#contactForm .d-grid {
+  animation-delay: 0.4s;
+}
+
+/* tampilan prestasi */
+/* Wrapper agar bisa scroll otomatis */
+  .prestasi-section {
+        background: linear-gradient(135deg, #f9fbff 25%, #ffffff 25%, #ffffff 50%, #f9fbff 50%, #f9fbff 75%, #ffffff 75%, #ffffff);
+        background-size: 40px 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* ===== Scroll Container ===== */
+    .prestasi-scroll-container {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .prestasi-scroll-container .row {
+        display: flex;
+        flex-wrap: nowrap;
+        animation: scrollPrestasi 45s linear infinite;
+    }
+
+    .prestasi-scroll-container:hover .row {
+        animation-play-state: paused;
+    }
+
+    /* ===== Card Styling ===== */
+    .prestasi-scroll-container .col-lg-3 {
+        flex: 0 0 auto;
+        margin-right: 24px;
+    }
+
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #fff;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===== Animasi Scroll ===== */
+    @keyframes scrollPrestasi {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* ===== Wave Divider ===== */
+    .wave-divider svg {
+        display: block;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    /* ===== Responsiveness ===== */
+    @media (max-width: 768px) {
+        .prestasi-scroll-container .col-lg-3 {
+            margin-right: 16px;
+        }
+
+        .prestasi-scroll-container .row {
+            animation-duration: 30s;
+        }
+    }
+  .btn-outline-secondary {
+  color: #333 !important;           /* teks abu gelap */
+  border-color: #ccc !important;    /* border abu muda */
+  background-color: white !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #f8f9fa !important;
+  border-color: #999 !important;
+  color: #000 !important;
+}
+/* Style untuk Tombol WA Hijau */
+.btn-success-custom {
+    background-color: #198754; /* Warna hijau standar Bootstrap */
+    color: white;
+    border: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success-custom:hover {
+    background-color: #157347; /* Hijau lebih gelap saat hover */
+    color: white;
+}
+/* ------------------------------------------ */
+/* 13. Payment Confirmation Form Animation    */
+/* ------------------------------------------ */
+
+/* Target kolom kanan yang punya kelas 'form-fade-in' */
+.payment-confirmation-section .col-md-7.form-fade-in > h4,
+.payment-confirmation-section .col-md-7.form-fade-in .contact-form > .mb-3:nth-child(1),
+.payment-confirmation-section .col-md-7.form-fade-in .contact-form > .mb-4:nth-child(2),
+.payment-confirmation-section .col-md-7.form-fade-in .contact-form > .d-flex:nth-child(3) {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0; 
+}
+
+/* Delay Animasi Bertingkat */
+.payment-confirmation-section .col-md-7.form-fade-in > h4 { animation-delay: 0.1s; } 
+.payment-confirmation-section .col-md-7.form-fade-in .contact-form > .mb-3:nth-child(1) { animation-delay: 0.2s; } 
+.payment-confirmation-section .col-md-7.form-fade-in .contact-form > .mb-4:nth-child(2) { animation-delay: 0.3s; } 
+.payment-confirmation-section .col-md-7.form-fade-in .contact-form > .d-flex:nth-child(3) { animation-delay: 0.4s; }
+
+/* ------------------------------------------ */
+/* 14. Prestasi Section Styling & Scrolling   */
+/* ------------------------------------------ */
+
+.prestasi-carousel-container {
+    overflow-x: auto; /* Memungkinkan scrolling horizontal */
+    overflow-y: hidden; /* Mencegah scrolling vertikal yang tidak diinginkan */
+    white-space: nowrap; /* Menjaga semua item dalam satu baris */
+    padding-bottom: 20px; /* Ruang untuk scrollbar */
+    -webkit-overflow-scrolling: touch; /* Untuk scrolling yang lebih halus di perangkat sentuh */
+
+    /* Custom scrollbar (opsional, untuk tampilan lebih bagus) */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--color-primary) #f1f1f1; /* Firefox */
+}
+
+/* Scrollbar styling untuk Webkit (Chrome, Safari) */
+.prestasi-carousel-container::-webkit-scrollbar {
+    height: 8px; /* Tinggi scrollbar horizontal */
+}
+
+.prestasi-carousel-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Warna track scrollbar */
+    border-radius: 10px;
+}
+
+.prestasi-carousel-container::-webkit-scrollbar-thumb {
+    background: var(--color-primary); /* Warna thumb scrollbar */
+    border-radius: 10px;
+}
+
+.prestasi-carousel-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-dark); /* Warna thumb saat hover */
+}
+
+/* Pastikan kolom di dalam container ini tetap dalam satu baris */
+.prestasi-carousel-container .row {
+    display: flex; /* Mengaktifkan flexbox */
+    flex-wrap: nowrap; /* Mencegah item turun ke baris baru */
+    gap: 1.5rem; /* Jarak antar kolom (ganti jika Anda ingin lebih besar/kecil dari g-4) */
+}
+
+/* Agar kolom punya lebar yang tetap saat scrolling, bukan mengisi seluruh lebar */
+.prestasi-carousel-container .col-lg-3,
+.prestasi-carousel-container .col-md-4,
+.prestasi-carousel-container .col-sm-6,
+.prestasi-carousel-container .col-12 {
+    flex: 0 0 auto; /* Mencegah item menyusut/meregang */
+    width: 25%; /* col-lg-3 */
+    /* Override lebar untuk responsif */
+    @media (max-width: 991.98px) { /* Medium devices (desktops, 992px and up) */
+        width: 33.333333%; /* col-md-4 */
+    }
+    @media (max-width: 767.98px) { /* Small devices (tablets, 768px and up) */
+        width: 50%; /* col-sm-6 */
+    }
+    @media (max-width: 575.98px) { /* Extra small devices (phones, 576px and up) */
+        width: 80%; /* Bisa disesuaikan, misalnya 80% dari viewport width */
+    }
+}
+/* ------------------------------------------ */
+/* 15. BACKFROUND DARI TRAINER, KELAS, DAN PRESTASI              */
+/* ------------------------------------------ */
+.trainer-section {
+    background: linear-gradient(180deg, #f5f8ff 0%, #eef3ff 100%);
+    padding-top: 80px;
+    padding-bottom: 0; /* biar nyatu ke wave */
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: -2px;
+}
+/* ------------------------------------------ */
+/* 16. BACKFROUND DARI KELAS DAN PRESTASI              */
+/* ------------------------------------------ */
+.kelas-section {
+    background: linear-gradient(180deg, #f3f8ff 0%, #eaf2ff 100%);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.prestasi-section {
+    background: linear-gradient(180deg, #f3f8ff 0%, #eaf2ff 100%);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+/* ------------------------------------------ */
+/* 17. Navbar Scroll Blur Effect              */
+/* ------------------------------------------ */
+
+/* Style default navbar (saat di paling atas) */
+.mainNavbar {
+    /* Transisi mulus saat berubah */
+    transition: background-color 0.4s ease, 
+                box-shadow 0.4s ease, 
+                -webkit-backdrop-filter 0.4s ease, 
+                backdrop-filter 0.4s ease;
+}
+
+/* Style baru 'navbar-scrolled' (saat di-scroll) */
+.mainNavbar.navbar-scrolled {
+    /* Background semi-transparan */
+    background-color: rgba(255, 255, 255, 0.85); 
+    
+    /* Efek Blur (Frosted Glass) */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    
+    /* Ganti 'shadow-sm' dengan bayangan yang lebih modern */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ------------------------------------------ */
+/* 18. Animasi Scroll-Reveal
+/* ------------------------------------------ */
+
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ------------------------------------------ */
+/* 19. Berita Section Styling             */
+/* ------------------------------------------ */
+
+.berita-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.berita-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.08);
+}
+
+
+
+/* Meta info (penulis & tanggal) */
+.berita-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+.berita-meta .bi {
+    color: var(--color-primary);
+    margin-right: 4px;
+}
+
+/* Halaman Detail Berita */
+.berita-detail-img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+}
+.berita-detail-content {
+    line-height: 1.8;
+}
+.berita-detail-content p {
+    margin-bottom: 1.5rem;
+}
+
