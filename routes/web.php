@@ -23,7 +23,8 @@ use App\Http\Controllers\Admin\PesanKontakController;
 // ---------------- LANDING PAGE CONTROLLERS (Milik Teman Anda) ----------------
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\ContactController; 
-use App\Http\Controllers\ClassController; 
+use App\Http\Controllers\ClassController;
+use App\Http\Controllers\PrestasiControllerDetail;
 
 // ---------------- MODELS DIPERLUKAN DI RUTE ----------------
 use App\Models\Trainer; 
@@ -62,7 +63,12 @@ Route::get('/berita/{id}', [ClassController::class, 'showBerita'])->name('berita
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // Route Formulir Kontak (Duplikasi yang Anda miliki)
-Route::post('/kontak', [ContactController::class, 'store']); 
+Route::post('/kontak', [ContactController::class, 'store']);
+
+// Route Detail Prestasi
+Route::get('/prestasi/{id}', [PrestasiControllerDetail::class, 'show'])->name('prestasi.show');
+
+
 
 // --- RUTE PENDAFTARAN (3 STEP) ---
 Route::get('/register', [PendaftaranController::class, 'showStepOne'])->name('register.step1.show');

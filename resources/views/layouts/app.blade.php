@@ -46,7 +46,7 @@
     <!-- 1. Floating Chat Bubble (Hanya tampil di Homepage) -->
     
 
-    <
+    
 
     <!-- 3. Modal Konfirmasi Kirim Pesan (Kode Anda sudah benar) -->
     <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
@@ -64,9 +64,7 @@
             </div>
         </div>
     </div>
-    <!-- == END MODALS == -->
-
-
+    
     <!-- ================================ -->
     <!-- == Scripts == -->
     <!-- ================================ -->
@@ -105,6 +103,38 @@
         </script>
     @endif
 
+    {{-- Tambahkan script ini di bagian bawah file --}}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollContainer = document.querySelector('.kelas-scroll-container');
+    const scrollPrev = document.querySelector('.kelas-scroll-prev');
+    const scrollNext = document.querySelector('.kelas-scroll-next');
+    
+    if (scrollContainer && scrollPrev && scrollNext) {
+        const scrollAmount = 300;
+        
+        scrollNext.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+        
+        scrollPrev.addEventListener('click', () => {
+            scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        
+        // Hide/show buttons based on scroll position
+        const updateButtonVisibility = () => {
+            scrollPrev.style.display = scrollContainer.scrollLeft > 0 ? 'flex' : 'none';
+            scrollNext.style.display = 
+                scrollContainer.scrollLeft < (scrollContainer.scrollWidth - scrollContainer.clientWidth) 
+                ? 'flex' : 'none';
+        };
+        
+        scrollContainer.addEventListener('scroll', updateButtonVisibility);
+        updateButtonVisibility();
+    }
+});
+</script>
+
     <!-- Script Animasi Scroll (Kode Anda sudah benar) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -124,6 +154,113 @@
             });
         });
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll('.counter');
+
+    const animate = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const speed = 95; // Semakin kecil semakin cepat
+
+        const update = () => {
+            const current = +counter.innerText;
+
+            const increment = Math.ceil(target / speed);
+
+            if (current < target) {
+                counter.innerText = current + increment;
+                requestAnimationFrame(update);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        update();
+    };
+
+    // Trigger animasi ketika elemen terlihat di layar
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animate(entry.target.querySelector(".counter"));
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll(".col-md-3").forEach(box => {
+        observer.observe(box);
+    });
+});
+</script>
+
+<script>
+    function switchMenu(event, menuId) {
+        event.preventDefault(); // Mencegah reload halaman jika pakai href="#"
+
+        // 1. Update Sidebar Active State
+        // Hapus class active dari semua nav-link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => link.classList.remove('active'));
+        
+        // Tambah class active ke link yang diklik
+        event.currentTarget.classList.add('active');
+
+        // 2. Switch Content dengan Animasi
+        // Sembunyikan semua section
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => {
+            section.classList.remove('active-section');
+        });
+
+        // Munculkan section yang dituju
+        const targetSection = document.getElementById(menuId);
+        if (targetSection) {
+            // Sedikit delay biar transisi CSS terasa
+            setTimeout(() => {
+                targetSection.classList.add('active-section');
+            }, 50);
+            
+            // Opsional: Update judul halaman di header
+            const titleMap = {
+                'dashboard': 'Dashboard Overview',
+                'kelas': 'Kelas Saya',
+                'jadwal': 'Jadwal Mentoring',
+                'sertifikat': 'Sertifikat Kompetensi',
+                'profile': 'Pengaturan Profil'
+            };
+            document.getElementById('page-title').innerText = titleMap[menuId] || 'Dashboard';
+        }
+    }
+
+    
+</script>
+<!-- Script popup trainer    -->
+<script>
+    function showTrainerPopup(element) {
+        // 1. Ambil data
+        const name = element.getAttribute('data-name');
+        const role = element.getAttribute('data-role');
+        const desc = element.getAttribute('data-desc');
+        const img = element.getAttribute('data-img');
+
+        // 2. Masukkan data ke Modal
+        document.getElementById('modalTrainerName').innerText = name;
+        document.getElementById('modalTrainerRole').innerText = role;
+        document.getElementById('modalTrainerImg').src = img;
+
+        // --- PERBAIKAN DISINI ---
+        // Ganti .innerText menjadi .innerHTML
+        document.getElementById('modalTrainerDesc').innerHTML = desc; 
+        // ------------------------
+
+        // 3. Tampilkan Modal
+        const myModal = new bootstrap.Modal(document.getElementById('trainerModal'));
+        myModal.show();
+    }
+</script>
+
+
 
     {{-- AKHIR SCRIPT ANIMASI SCROLL --}}
 
